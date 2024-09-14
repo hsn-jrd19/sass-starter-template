@@ -1,0 +1,304 @@
+@use './base/';
+@use './components/';
+@use './layout/';
+@use './utilities/';
+@use './vendor/';
+
+// Cleaning up the index.html file
+// I like to move the script tag into the head of my document. Because it has the type="module" on there (which we need to keep), it acts the same as having a defer attribute on there, and it won’t execute the script until after the document has been parsed.
+// I’ve also added a link to the CSS file as well.
+
+// Getting organized for multiple pages
+// We have a few options here.
+
+// As I mentioned, Vite is set up to be an SPA, so we have a single index.html in the root folder.
+// By default, that is the only file that Vite will build when we build for production, even though other pages will work when you are running in the dev environment.
+// We can place these files anywhere, but we need to tell Vite where to find them.
+// We can just place all of our .html files in there if we want, but to get pretty URLS, we will want to give each page it’s own folder as well.
+// If you haven’t heard of Pretty URLs, if we had an about page, we could have site.com/about.html or site.com/about, the second of which is more use-friendly, and a more standard approach these days.
+// So, to do that, we’d have /about/index.html.
+
+// Telling Vite where to find the other files using vite.config.js
+
+// import { resolve } from "path";
+// import { defineConfig } from "vite";
+
+// export default defineConfig({
+//   build: {
+//     rollupOptions: {
+//       input: {
+//         home: resolve(__dirname, "index.html"),
+//         about: resolve(__dirname, "about/index.html"),
+//         contact: resolve(__dirname, "contact/index.html"),
+//       },
+//     },
+//   },
+// });
+
+// With that in place, we would have our homepage, plus an about and a contact page.
+
+// Creating a src/ folder
+
+// If you only have three or four pages, this isn’t the end of the world, but the root folder of our project can get messy pretty quickly as a project grows.
+
+// Vite works directly out of the root, but we can configure it to look for files somewhere else if it’d like to.
+
+// So, the first thing we’ll want to do is create a src/ folder in the root, and then move all relevant files there.
+
+// The easier thing to do is to place our new pages in there, but the problem then will be when Vite builds the site, it will include the src/ in the url, which is far from ideal.
+
+// So, we need to move everything related to our site into the src/ folder:
+
+// index.html
+// style.scss
+// main.js
+// public/
+// We DO NOT want to move the build and configuration files, like our .gitignore or package.json.
+
+// The problem now is Vite will be lost, as it’s looking for the files inside the root.
+
+// To fix this, we can specify the root with root: resolve(__dirname, "src/").
+
+// Now this will work, but the dist/ folder will appear in the src/ folder.
+
+// To fix that, inside the build: options, we also need to add: outDir: "../dist", and we also want to make sure that it empties that file when we do a new build, so we also include: emptyOutDir: true as well.
+
+// That will leave our vite.config.js file looking like this:
+
+// import { resolve } from "path";
+// import { defineConfig } from "vite";
+
+// export default defineConfig({
+//   root: resolve(__dirname, "src/"),
+//   build: {
+//     outDir: "../dist",
+//     emptyOutDir: true,
+//     rollupOptions: {
+//       input: {
+//         home: resolve(__dirname, "src/index.html"),
+//         about: resolve(__dirname, "src/about/index.html"),
+//         contact: resolve(__dirname, "src/contact/index.html"),
+//       },
+//     },
+//   },
+// })
+
+// If you have a very large project, manually adding pages might not seem practical, but in that case, I'm going to assume you're using an SSG (such as 11ty or Astro), or a framework like React, Vue, etc, in which case you can still use the same approach, but without using Vite. For small projects (10 pages and less) this works great!
+
+// If you are working on a larger project and haven't used something that offers templating, I'd encourage you to look into Astro, which uses Vite and is a great SSG, that can also be a lot more.
+
+// now 1 thing to remember know is when u will try to link to html pages use the folder name instead the file name like <a href"/about"></a>
+
+//When we create website or web app, we usually want to get it online for others to see. That is sort of the entire point of creating them, afterall!
+
+// For this course, I’m going to look at how we can do that with Netlify, though there are other options out there as well.
+
+// The reason I’m using Netlify is the ease of use, and the generous free tier that they have. If you are using another service, such as Vercel, the process will be fairly similar.
+
+// Some people are weary of free things, and I fully agree that we need to be careful, but Netlify is an established company with an excellent reputation. I use it to host my personal site, as well as the large majority of my other projects as well.
+
+// Just a heads up that this lesson looks pretty long, but it’s a very quick process, it just has a number of steps that we have to go through 🙂.
+
+// What you will need to follow along
+// To be able to host your project on Netlify, you will need:
+
+// A GitHub account (or other GitHub alternative)
+// A Netlify account
+// If we want to use a service like Netlify or Vercel, we need to use one of the Git code hosting platforms. GitHub is the big one, and what I’ll be using throughout this course, but if you do use GitLab, Bitbucket, or another alternative, they should work as well.
+
+// Whichever you use, you will want to use one. If you haven’t started using any yet, there is no better time than now, and while Git can be hard to wrap your head around, we’ll be looking at the easy ways to use it in this course.
+
+// In the next section of this module, we’ll be looking at hosting our template on GitHub as well, so it’s not just for hosting our projects, but it also lets us host our templates, which allows us to start projects much faster as well.
+
+// If you don’t have either of those yet, go and create an account with each of them before you continue with this lesson.
+
+// Getting your project onto GitHub
+// If you haven’t used GitHub before, we’ll be going into more detail on it soon, but for now, you can watch the lesson above that shows how easily we can get a project onto GitHub without leaving VS Code.
+
+// Creating a new project in Netlify
+// Once you have your project on GitHub (or one of the alternatives):
+
+// Log in to Netlify
+// Click on the Add new site button
+// Select Import an existing project
+
+// Netlify will ask you to pick the service where you’re files are, so pick whichever Git service you uploaded your site to.
+
+// That will open a window to login to that service, and if you haven’t used Netlify before, it will ask you to grant Netlify some permissions. You will have to accept these for this to work.
+
+// You can chose if Netlify has access to all of your repos, or if you only want to grant it access to specific repos.
+
+// I used to give it access to specific repos, and add them one by one as needed, but I got annoyed with that and eventually gave it permission to access all of them. You can switch this permission either way at any point, so don’t worry here if you aren’t sure.
+
+// Also, Netlify is able to build from private repositories, which can come in handy!
+
+// Because it has access to all my repos, it lists all of my repos, but there is a handy search feature that we can use.
+
+// Once you’ve found the repository that you want, select it, and it’ll bring us to a new screen with some fields that we need to fill in.
+
+// You need to pick the branch you want to deploy. It is probably main or master unless you want to deploy based on another branch you have created.
+// You probably want to leave the base directory blank unless you have the entire project in a subfolder. This isn’t for the src/ folder, but for the root of the entire project that Netlify will build.
+// The build command is probably already filled in with npm run build, which we can leave as is
+// The publish directory will probably be dist already, but if you changed the name here in your config, just make sure it matches up
+// You can leave the Functions directory blank for now.
+// All of these settings can also be updated in the future, so no worries if make a mistake along the way.
+
+// With all of that setup, you can hit Deploy and it should build the site pretty quickly for you.
+
+// Updating the site
+// The great thing about this setup is now, when you make a change to project and push that change to GitHub, Netlify will see that and automatically build the site with that change for you (you can see this in action starting around the 6:45 mark in the video at the top of this lesson).
+
+// Over time, I evolved that system to something that worked better for me. I’ll be exploring how I organize my own projects in this section of the course.
+
+// The important thing isn’t to follow what I say, or what others say, but to have a logical system in place. No system is perfect, so the important thing is having a well-organized system and sticking to it, whatever it is.
+
+// In general, I follow the following system (usually with a lot more files, but it gives you a general overview).
+
+// sass/
+// |
+// |-abstracts/
+// |  |- _breakpoints.scss
+// |  |- _functions.scss
+// |  |- _mixins.scss
+// |  |- _index.scss
+// |
+// |-base/
+// |  |- _root.scss
+// |  |- _reset.scss
+// |  |- _general.scss
+// |  |- _index.scss
+// |
+// |-components/
+// |  |- _forms.scss
+// |  |- _buttons.scss
+// |  |- _navigation.scss
+// |  |- _index.scss
+// |
+// |-layout/
+// |  |- _single-column.scss
+// |  |- _with-sidebar.scss
+// |  |- _index.scss
+// |
+// |-utilities/
+// |  |- _colors.scss
+// |  |- _text.scss
+// |  |- _spacing.scss
+// |  |- _index.scss
+// |
+// |-vendor/
+// |  |- _prism.scss
+// |  |- _index.scss
+// |
+// |- main.scss
+
+// The overall idea here is to keep things as modular as possible. Everything has a place to live, and it’s very easy to find.
+
+// One thing that’s important is that it takes some time to set this all up the first time, but once you have a system in place, the hard work is done.
+
+// Abstracts
+// As we’ve talked about a fair deal so far, abstracts are things like variables and mixins that aren’t directly compiled to CSS, but instead are used in other places.
+
+// I tend to separate things quite a bit here, with separate files for colors, font related things, breakpoints, and so on. I do group all my mixins into a single mixins file, and the same with my functions though.
+
+// Base
+// This folder contains my reset, my custom properties (inside the _root.scss file), and all the more generic styling for my body and other simple element selectors where we can set up some general styling and let the cascade take care of things.
+
+// Components
+// Every component I make gets it’s own partial file, making it very easy to find what you’re looking for.
+
+// Layout
+// I try to keep my layout classes fairly generic and separated from specific components.
+
+// The idea is layout classes create a layout, and then components live within those layouts.
+
+// In here I have things like a layout with a sidebar, equal column layouts, grid systems, etc. Generally, they tend to be as generic as possible.
+
+// Once again, every layout I create gets its own partial to make it easy to find.
+
+// We’ll add a few layout classes that I use in most of my projects a little later on in the course.
+
+// Utilities
+// As with my components and layout, every utility I create gets its own partial, except for things like colors and font sizes, where all of the respective classes live in the one partial file.
+
+// I also include things like my .container here, and a few other things that you might feel like they could go under layout/ instead.
+
+// We’ll add some useful utilities I use on most of my projects a little later on.
+
+// Vendor
+// Vendor is for 3rd party CSS, so for plugins or other things you might be bringing in. I use prism for handling syntax highlighting, so I drop their CSS file in there. This could also be the home for some 3rd party lightbox, or even something as big as Boostrap.
+
+// main.scss
+// This is where everything gets brought in, with the exception of my abstracts.
+
+// Each folder above with have an _index.scss, and then I’ll have:
+
+// @use 'base';
+// @use 'components';
+// @use 'layout';
+// @use 'utilities'
+// @use 'vendor';
+// The order of the imports is important, with the order you put them here being the order the styles will be in the compiled CSS. If you’re overwriting your vendor styles (say you’re using Boostrap, and then modifying it in your own styles), then you would want to import that first.
+
+// 📝 If you are only worried about modern browsers, you could use @layers, and import different partials into different layers. If your layer names match your file names, you could even create a list with the names and use a loop to bring everything together a bit more automatically.
+
+// It’s not set in stone
+// You’ll need to make tweaks from project to project, and yes, it takes time to get all this in place for one project, but after that, you have it and can keep building upon it. It’s super powerful.
+
+// Creating a template
+// To turn this into a template, we’re going to be using GitHub.
+
+// If you don’t have a GitHub account, I strongly encourage you to create one. You’ll probably need to have one at one point as a front-end dev anyway.
+
+// There are other source-control services out there, so you’re welcome to use one of those ones if you'd prefer, but I'll be walking through the steps here using GitHub.
+
+// One of the nice things with GitHub is that it is integrated into VS Code.
+
+// To work with GitHub in VS Code, there are a few steps you’ll have to take.
+
+// ⚠️ If you are already familiar with Git, feel free to skip ahead. For the rest of this lesson, we’ll be logging into GitHub in VS Code, initializing the repo, publishing it to GitHub, and then turning it into a template.
+
+// Setting up VS Code
+// If you’ve never used GitHub or another version control service like BitBucket or GitLab, you might not have Git installed on your computer.
+
+// You can download the installer for Git here. It’s available for Windows, Mac, and Linux, and you should have it installed within a few clicks.
+
+// After installing it, you’ll need to restart VS Code if you have it open.
+
+// Next, if you haven’t already signed up for a GitHub account, you’ll need to do that.
+
+// With all that done, in VS Code, we’ll first make sure that Git is enabled by going to Settings (File -> Preferences -> Settings / Code -> Preferences - Settings ) and in the search, type git: enabled. Make sure that it is checked on.
+
+// Then in the bottom of your Action panel (probably on the bottom left of VS Code), you’ll want to click on the little head icon:
+
+// From there, select Sign in to Sync Settings and choose Sign in with GitHub.
+
+// This will probably open GitHub in the browser and you’ll have a few prompts that you’ll have to agree to, and then you’ll be signed in.
+
+// Initializing the repo
+
+// Now that we’re signed into GitHub within VS Code, we want to go to the Source Control panel, which you can do by going to View -> Source Control, or by using the shortcut Shift + Ctrl + G / Shift + Cmd + G.
+
+// When you open that, you should see two blue buttons, one to initialize the repo, and the second one to publish it to GitHub.
+
+// You can click on Publish to GitHub (which may prompt you to Authorize GitHub through the browser).
+
+// At the top of the screen, you’ll have an option to Publish to GitHub private repository or Publish to GitHub public repository.
+
+// You are welcome to use either one.
+
+// You can keep the template private and still have the projects you create with it be public, or if you’d like to make the template public as well, you can do that. It’s up to you.
+
+// Once you’ve chosen, you’ll have one last button to click, Publish Branch (if you have GitHub’s Desktop app on your computer, you may be prompted to login there too at this point).
+
+// And now, your repo is live on GitHub!
+
+// Turning the repo into a template
+// Template repositories allow us to start new projects based on that template.
+
+// To turn this repo into a template, you’ll have to:
+
+// Go to GitHub and open the new repository that you just created
+// Go the the settings tab
+// Click the Template checkbox
+
+//if u feel like u r repeating some things in your projects you can use add them into the template for sure
