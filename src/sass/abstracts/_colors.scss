@@ -1,12 +1,10 @@
+//we'l be always changing the colors acording to design from project tot project so u get used to, changing the abstract again an again
 $colors: (
-  neutral: (
-    light: white,
-    normal: gray,
-    dark: black,
+  neut: (
+    100: white,
+    900: black,
   ),
-  primary: (
-    light: lightblue,
-    normal: blue,
-    dark: darkblue,
+  pri: (
+    400: #06f,
   ),
 );

@@ -5,9 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/main.js"></script>
     <link rel="stylesheet" href="./sass/style.scss" />
-    <title>starter template</title>
+    <title>Pricing table</title>
   </head>
   <body>
-    <div id="app"></div>
+    <h1 class="page-title | clr-primary-400 fs-900 my-32">Hosting Plans</h1>
+    <div class="container">
+      <div class="pricing-plans">
+        <div class="tier | p-32">
+          <h2 class="tier__title | clr-primary-400 fw-bold">Free</h2>
+          <ul class="tier__feature-list">
+            <li class="tier__item">1 domain</li>
+            <li class="tier__item">5gb of bandwidth</li>
+            <li class="tier__item">1gb of diskspace</li>
+            <li class="tier__item">5,000 monthly uniques</li>
+          </ul>
+          <p class="tier__price | fs-800 fw-bold">$0<span class="fw-regular fs-600">/month</span></p>
+          <button class="button">Get started</button>
+        </div>
+        <div class="tier | bg-primary-400 clr-neutral-100">
+          <h2 class="tier__title | nut">Tiny</h2>
+          <ul class="tier__feature-list">
+            <li class="tier__item">5 domain</li>
+            <li class="tier__item">250gb of bandwidth</li>
+            <li class="tier__item">5gb of diskspace</li>
+            <li class="tier__item">15,000 monthly uniques</li>
+          </ul>
+          <p class="tier__price">$19<span>/month</span></p>
+          <button class="button">Get started</button>
+        </div>
+        <div class="tier">
+          <h2 class="tier__title">Large</h2>
+          <ul class="tier__feature-list">
+            <li class="tier__item">15 domain</li>
+            <li class="tier__item">750gb of bandwidth</li>
+            <li class="tier__item">20gb of diskspace</li>
+            <li class="tier__item">50,000 monthly uniques</li>
+          </ul>
+          <p class="tier__price">$49<span>/month</span></p>
+          <button class="button">Get started</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

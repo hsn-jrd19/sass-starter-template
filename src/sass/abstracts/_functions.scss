@@ -1,10 +1,44 @@
 @use 'sass:map';
 @use 'colors' as *;
+@use 'typography' as *;
+@use 'sizes' as *;
 
 @function clr($color, $shade) {
   @if map.has-key($colors, $color, $shade) {
     @return map.get($colors, $color, $shade);
   } @else {
-    @error '$colors does not have that color!';
+    @error '#{$color} does found in $colors map!';
+  }
+}
+
+@function fs($font-size) {
+  @if map.has-key($font-sizes, $font-size) {
+    @return map.get($font-sizes, $font-size);
+  } @else {
+    @error '#{$font-size} does found in $font-sizes map!';
+  }
+}
+
+@function size($size) {
+  @if map.has-key($sizes, $size) {
+    @return map.get($sizes, $size);
+  } @else {
+    @error '#{$size} does found in $sizes map!';
+  }
+}
+
+@function fw($font-weight) {
+  @if map.has-key($font-weights, $font-weight) {
+    @return map.get($font-weights, $font-weight);
+  } @else {
+    @error '#{$font-weight} does found in $font-weights map!';
+  }
+}
+
+@function radius($size) {
+  @if map.has-key($sizes, $size) {
+    @return map.get($sizes, $size);
+  } @else {
+    @error '#{$size} does found in $sizes map!';
   }
 }

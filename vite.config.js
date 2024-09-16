@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import htmlPurge from 'vite-plugin-html-purgecss';
 
 export default defineConfig({
   root: resolve(__dirname, 'src/'),
@@ -14,4 +15,6 @@ export default defineConfig({
       },
     },
   },
+  // Adding purgecss vite plugins
+  plugins: [htmlPurge()],
 });
