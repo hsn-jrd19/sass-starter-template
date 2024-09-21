@@ -7,8 +7,35 @@ $sizes: (
   24: 1.5rem,
   28: 1.75rem,
   32: 2rem,
+  36: 2.25rem,
   40: 2.5rem,
   48: 3rem,
   56: 3.5rem,
   64: 4rem,
+  72: 4.5rem,
+  80: 5rem,
+  88: 5.5rem,
+  92: 5.75rem,
+  96: 6rem,
+  104: 6.5rem,
+  108: 6.75rem,
+  112: 7rem,
 );
+//now if u dont have the figm a file u can do is go all out with the map but if u hav the file then u can make the custom vars related to project
+// or if the numbers are even bigger thent he values in the map make ur vars aswell
+$padding-section: clamp(3rem, 10vh, 7rem);
+$padding-hero: clamp(15rem, 15vh, 20rem);
+//we made the padding of sections dynamic so that on smaller view height it'll b smaller aleast to 3rem and maximim 7rem but normally it will keep adjusting acording to screen height
+$padding-card-body: clamp(2rem, 3.6vw, 5rem); // may used in card component file
+//we r soingnthis bcas this more of a generic approach to take to all of our projects
+// bcas mostly every card is gonna hab a body
+// also its more contextial, this word has imp meaning in our design u will remember the context but u may not remember the rndm padding p-34 etc, so thats the cincept behind
+
+$grid-gap: 1.5rem;
+$flex-group-gap: 1rem; // will b used in flex-group class
+
+$container-x-padding: 1rem;
+$container-max-width: 65rem; //will b used in container class
+$container-max-width-wide: 80rem;
+
+$minimum-col-width: 250px; // will b used in .auto-fit layout class

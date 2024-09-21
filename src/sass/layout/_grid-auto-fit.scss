@@ -1,0 +1,6 @@
+@use '../abstracts/' as *;
+.grid-auto-fit {
+  display: grid;
+  gap: var(--grid-gap, $grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min($minimum-col-width, 100%), 1fr));
+} //hum number 5 line mn min() function mn kh rahy hen agr screen choti hoti hai 250px jgah b nahi rehti to 100% py shift ho jaye with screen ki, clear.

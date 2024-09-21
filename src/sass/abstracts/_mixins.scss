@@ -3,7 +3,7 @@
 @use 'sass:map';
 @use 'breakpoints' as *;
 
-@mixin mq($size) {
+@mixin media($size) {
   @if map.has-key($breakpoints, $size) {
     $breakpoint: map-get($breakpoints, $size);
     @media screen and (min-width: $breakpoint) {

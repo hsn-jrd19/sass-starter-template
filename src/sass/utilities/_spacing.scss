@@ -1,5 +1,13 @@
 @use '../abstracts' as *;
 
+.section {
+  padding-block: $padding-section;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
 @each $size-name, $size-value in $sizes {
   .m {
     &-#{$size-name} {
@@ -14,13 +22,13 @@
     &y-#{$size-name} {
       margin-block: $size-value;
     }
-    &-x-start-#{$size-name} {
+    &x-start-#{$size-name} {
       margin-inline-start: $size-value;
     }
-    &-x-end-#{$size-name} {
+    &x-end-#{$size-name} {
       margin-inline-end: $size-value;
     }
-    &-x-#{$size-name} {
+    &x-#{$size-name} {
       margin-inline: $size-value;
     }
   }

@@ -1,8 +1,8 @@
-@use './base/';
-@use './components/';
-@use './layout/';
-@use './utilities/';
-@use './vendor/';
+@use './base/' as *;
+@use './components/' as *;
+@use './layout/' as *;
+@use './utilities/' as *;
+@use './vendor/' as *;
 
 // Cleaning up the index.html file
 // I like to move the script tag into the head of my document. Because it has the type="module" on there (which we need to keep), it acts the same as having a defer attribute on there, and it won’t execute the script until after the document has been parsed.

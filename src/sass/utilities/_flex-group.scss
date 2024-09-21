@@ -1,0 +1,17 @@
+@use '../abstracts/' as *;
+.flex-group {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--flex-col-gap, $flex-group-gap);
+  row-gap: var(--flex-row-gap, calc($flex-group-gap / 2));
+  width: fit-content;
+}
+
+.flex-group.mx-auto {
+  justify-content: center;
+}
+// a math logical problem::
+// if a number is increasing in 100% ratio in each iteration of loop
+// increase another number also by 100 % by manipulating the other num
+//solution::
+//1st. calculate the diff btw 2 num, 2nd calculate the percentage e.g the difference was .75 then calculate 75 % of loop index i then add that into that other number, these are all the steps to solve this algorithm

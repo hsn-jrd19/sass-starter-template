@@ -1,14 +1,21 @@
+$ff-sans: 'Lato', sans-serif;
+$ff-serif: 'Abril Fatface', serif;
+
+$ff-base: $ff-sans;
+$ff-accent: $ff-serif;
+// u can use utopia which is a font calculator used for adjusting fonts with respect to another, the things i am going to change in the fonts map that u will learn with experience the clamps and other stuf
+// Note: these value r goung to chng project to project so a font calculater is a good idea
 $font-sizes: (
-  900: 3.75rem,
-  800: 3rem,
-  600: 1.5rem,
+  900: clamp(2.5rem, 0.5rem + 10vw, 5rem),
+  800: clamp(2.4rem, 0.5rem + 7vw, 3.75rem),
+  600: clamp(1.4rem, 0.5rem + 3vw, 1.687rem),
   500: 1.3125rem,
   400: 1.125rem,
+  300: 1rem,
 );
-
-$ff-sans: 'Open Sans', sans-serif;
+// also bigger the value is of vh and vw sections or typographyis gona strech or shrink more fastr so that keep in mind
 
 $font-weights: (
-  $normal: 400,
-  $bold: 700,
+  normal: 400,
+  bold: 700,
 );

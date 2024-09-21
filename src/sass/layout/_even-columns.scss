@@ -1,0 +1,15 @@
+@use '../abstracts/' as *;
+.even-columns {
+  display: grid;
+  gap: var(--grid-gap, $grid-gap);
+
+  & > * {
+    max-width: 500px; //we solve the problem of div expanding to the edges when stacked but images in them dont stretch so we through a max-width so they dont have a chance to grow more than 500px and we center thm with m inline :auto
+    margin-inline: auto;
+  }
+
+  @include media(medium) {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}

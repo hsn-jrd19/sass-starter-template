@@ -1,0 +1,13 @@
+@use '../abstracts/' as *;
+.lead-para {
+  font-size: fs(500);
+  font-weight: fw(bold);
+  color: clr(neut, 900);
+  text-transform: uppercase;
+
+  & + p {
+    margin-top: 0; //any para whose previous siblibing is a lead-para class nuke top margin
+  }
+}
+//this class is all about styling the leading paragrapgh in a card a para which mostly comes after the title and before the small paragraphs
+// a nice technique.

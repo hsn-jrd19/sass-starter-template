@@ -3,6 +3,9 @@
 @each $size-name, $size-value in $font-sizes {
   .fs-#{$size-name} {
     font-size: $size-value;
+    @if $size-name > 600 {
+      line-height: 1.1;
+    }
   }
 }
 // to decide if u want map or u dont want a map , it depends on if u want the utility clases then make the map if dont then dont make the map

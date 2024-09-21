@@ -3,48 +3,207 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/main.js"></script>
-    <link rel="stylesheet" href="./sass/style.scss" />
-    <title>Pricing table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./sass/main.scss" />
+    <title>Chef services site</title>
   </head>
   <body>
-    <h1 class="page-title | clr-primary-400 fs-900 my-32">Hosting Plans</h1>
-    <div class="container">
-      <div class="pricing-plans">
-        <div class="tier | p-32">
-          <h2 class="tier__title | clr-primary-400 fw-bold">Free</h2>
-          <ul class="tier__feature-list">
-            <li class="tier__item">1 domain</li>
-            <li class="tier__item">5gb of bandwidth</li>
-            <li class="tier__item">1gb of diskspace</li>
-            <li class="tier__item">5,000 monthly uniques</li>
-          </ul>
-          <p class="tier__price | fs-800 fw-bold">$0<span class="fw-regular fs-600">/month</span></p>
-          <button class="button">Get started</button>
-        </div>
-        <div class="tier | bg-primary-400 clr-neutral-100">
-          <h2 class="tier__title | nut">Tiny</h2>
-          <ul class="tier__feature-list">
-            <li class="tier__item">5 domain</li>
-            <li class="tier__item">250gb of bandwidth</li>
-            <li class="tier__item">5gb of diskspace</li>
-            <li class="tier__item">15,000 monthly uniques</li>
-          </ul>
-          <p class="tier__price">$19<span>/month</span></p>
-          <button class="button">Get started</button>
-        </div>
-        <div class="tier">
-          <h2 class="tier__title">Large</h2>
-          <ul class="tier__feature-list">
-            <li class="tier__item">15 domain</li>
-            <li class="tier__item">750gb of bandwidth</li>
-            <li class="tier__item">20gb of diskspace</li>
-            <li class="tier__item">50,000 monthly uniques</li>
-          </ul>
-          <p class="tier__price">$49<span>/month</span></p>
-          <button class="button">Get started</button>
+    <header class="primary-header | my-start-24">
+      <img src="./images/logo.svg" alt="Chef John Smelton" class="logo mx-auto" />
+      <nav class="primary-nav | my-start-24">
+        <ul class="flex-group mx-auto">
+          <li><a href="#about">About</a></li>
+          <li><a href="#meals">Meals</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+        <!--  as u notice there is no need for a display flex or grouping the logo and nav links if they already stack on each other use some spacing style like margin and padding to position stuff center or left right where evr u want , always take advantge of inhretence when it comes to typography and even aligning text center clases like bg, color, fonts txt align etc trough them on parent and children inherit -->
+      </nav>
+    </header>
+
+    <!--  Hero Section
+        -->
+    <section class="hero | bg-neut-900 clr-neut-100 text-center">
+      <div class="container">
+        <h1 class="fs-900 ff-accent my-end-48">Homecooked meals delivered staright to your door</h1>
+        <div class="flex-group mx-auto">
+          <buttton class="button button--inverted">Place Order</buttton>
+          <a href="#about" class="button button--outline">More Info</a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!--  Section About
+        -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="even-columns">
+          <div>
+            <picture>
+              <source srcset="./images/about.avif" type="image/avif" />
+              <source srcset="./images/about.webp" type="image/webp" />
+              <img class="shadow-2 shift-up" src="./images/about.jpg" alt="" />
+            </picture>
+          </div>
+          <div class="flow">
+            <header class="section-header">
+              <h2 class="clr-pri-500 ff-accent fs-800">Lorem ipsum dolor sit amet.</h2>
+              <p class="fs-600 uppercase">Lorem ipsum dolor sit amet consec, adipisicing elit. Suscipit.</p>
+            </header>
+            <p class="lead-para">Lorem, ipsum dolor.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi magnam est voluptates nemo delectus neque.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid ab iure doloribus eius libero quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, eaque!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section bg-neut-200 text-center">
+      <div class="container">
+        <div class="section-header section-header--decorative">
+          <h2 class="clr-pri-500 ff-accent fs-800">Lorem ipsum dolor sit amet.</h2>
+          <p class="fs-600 uppercase">Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit adipisicing elit</p>
+        </div>
+        <div class="grid-auto-fit">
+          <div>
+            <h3 class="fs-500 clr-neut-900 fw-bold">Fresh ingredients</h3>
+            <p>Lorem ipsum dolor sit amet, elit. voluptatum architecto ipsa dignissimos ut? Blanditiis est magnam eaque deserunt aliquam!</p>
+          </div>
+          <div>
+            <h3 class="fs-500 clr-neut-900 fw-bold">Professional chef</h3>
+            <p>Lorem ipsum, dolor sit elit. Iste quo aut ea repudiandae quasi ratione labore tempora. Soluta nesciunt unde praesentium modi sequi et odit</p>
+          </div>
+          <div>
+            <h3 class="fs-500 clr-neut-900 fw-bold">Ready for you</h3>
+            <p>Lorem ipsum dolor sit culpa ab veniam distinctio quas magni Lorem, ipsum dolor explicabo necessitatibus repudiandae quibusdam maiores</p>
+          </div>
+          <div>
+            <h3 class="fs-500 clr-neut-900 fw-bold">Made with love</h3>
+            <p>Lorem ipsum dolor sit Expedita, ipsum ea. Cum accusamus eveniet reprehenderit, nam vel omnis obcaecati vero et alias molliti</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--  Section Meals
+        -->
+    <section id="meals" class="section bg-neut-900 clr-neut-100">
+      <div class="container--wide">
+        <header class="section-header text-center section-header--decorative">
+          <h2 class="ff-accent fs-800">Lorem ipsum dolor sit amet.</h2>
+          <p class="fs-600 uppercase">Lorem ipsum dolor sit amet consectetur, adipisicing elit. consequuntur Lorem,</p>
+        </header>
+        <div class="even-columns">
+          <figure class="interactive-figure">
+            <picture>
+              <source srcset="./images/meal-01.avif" type="image/avif" />
+              <source srcset="./images/meal-01.webp" type="image/webp" />
+              <img src="./images/meal-01.jpg" alt="A nicely presented plate with salmon and vegetables" />
+            </picture>
+            <figcaption class="p-32">
+              <h3 class="fs-500 fw-bold uppercase">Pan-seared salmon and veges</h3>
+              <p>A pan-seared salmon filet served on top of a giant bed of delicious vegetables</p>
+            </figcaption>
+          </figure>
+          <figure class="interactive-figure">
+            <picture>
+              <source srcset="./images/meal-02.avif" type="image/avif" />
+              <source srcset="./images/meal-02.webp" type="image/webp" />
+              <img src="./images/meal-02.jpg" alt="A nicely presented plate with salmon and vegetables" />
+            </picture>
+            <figcaption class="p-32">
+              <h3 class="fs-500 fw-bold uppercase">Pan-seared salmon and veges</h3>
+              <p>A pan-seared salmon filet served on top of a giant bed of delicious vegetables</p>
+            </figcaption>
+          </figure>
+          <figure class="interactive-figure">
+            <picture>
+              <source srcset="./images/meal-03.avif" type="image/avif" />
+              <source srcset="./images/meal-03.webp" type="image/webp" />
+              <img src="./images/meal-03.jpg" alt="A nicely presented plate with salmon and vegetables" />
+            </picture>
+            <figcaption class="p-32">
+              <h3 class="fs-500 fw-bold uppercase">Pan-seared salmon and veges</h3>
+              <p>A pan-seared salmon filet served on top of a giant bed of delicious vegetables</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!--  Section Testimonials
+          -->
+    <section id="testimonials" class="section bg-neut-100 clr-neut-900 text-center">
+      <div class="container--wide">
+        <header class="section-header">
+          <h2 class="clr-pri-500 ff-accent fs-800">What our clients are saying about us</h2>
+        </header>
+        <div class="even-columns">
+          <!--  1st card
+              -->
+          <div class="card card--testimonial shadow-2 text-center">
+            <picture>
+              <source srcset="./images/testimonial-01.avif" type="image/avif" />
+              <source srcset="./images/testimonial-01.webp" type="image/webp" />
+              <img src="./images/testimonial-01.jpg" alt="A nicely presented plate with salmon and vegetables" />
+            </picture>
+            <div class="card__body">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error magnam culpa repellat. Incidunt ipsa cupiditate omnis perspiciatis similique doloremque, quae molestiae. Itaque,
+                repudiandae eos! Optio repellat culpa minus quia placeat?
+              </p>
+            </div>
+            <div class="testimonial__footer p-16 bg-neut-200">
+              <p class="fs-500 clr-pri-500">John Deer</p>
+              <p class="fs-300">Lover of good food</p>
+            </div>
+          </div>
+          <!--  2nd card
+                -->
+          <div class="card card--testimonial shadow-2">
+            <picture>
+              <source srcset="./images/testimonial-02.avif" type="image/avif" />
+              <source srcset="./images/testimonial-02.webp" type="image/webp" />
+              <img src="./images/testimonial-02.jpg" alt="A nicely presented plate with salmon and vegetables" />
+            </picture>
+            <div class="card__body">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error magnam culpa repellat. Incidunt ipsa cupiditate omnis perspiciatis similique doloremque, quae molestiae. Itaque,
+                repudiandae eos! Optio repellat culpa minus quia placeat?
+              </p>
+            </div>
+            <div class="testimonial__footer p-16 bg-neut-200">
+              <p class="fs-500 clr-pri-500">John Deer</p>
+              <p class="fs-300">Lover of good food</p>
+            </div>
+          </div>
+          <!--  3rd card
+              -->
+          <div class="card card--testimonial shadow-2">
+            <picture>
+              <source srcset="./images/testimonial-03.avif" type="image/avif" />
+              <source srcset="./images/testimonial-03.webp" type="image/webp" />
+              <img src="./images/testimonial-03.jpg" alt="A nicely presented plate with salmon and vegetables" />
+            </picture>
+            <div class="card__body">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error magnam culpa repellat. Incidunt ipsa cupiditate omnis perspiciatis similique doloremque, quae molestiae. Itaque,
+                repudiandae eos! Optio repellat culpa minus quia placeat?
+              </p>
+            </div>
+            <div class="testimonial__footer p-16 bg-neut-200">
+              <p class="fs-500 clr-pri-500">John Deer</p>
+              <p class="fs-300">Lover of good food</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="section primary-footer bg-neut-900 clr-neut-100 text-center">
+      <div class="container flow"></div>
+      <p class="fw-bold">Homecooked meals delivered staright to your door</p>
+      <p>&copy;2022 Personal Chef services</p>
+      <p>555 Boulevard Lingston,Montreal Quebec,JS1 159| 123-555-1234</p>
+    </footer>
   </body>
 </html>

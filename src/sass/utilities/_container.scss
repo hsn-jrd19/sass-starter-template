@@ -1,4 +1,21 @@
+@use '../abstracts/' as *;
 .container {
-  width: min(100%-2rem, 60rem);
+  --padding: #{$container-x-padding} * 2;
+  --max-width: #{$container-max-width};
+  width: min(100% - var(--padding), var(--max-width));
+  margin-inline: auto;
+}
+
+.container--wide {
+  --padding: #{$container-x-padding} * 2;
+  --max-width: #{$container-max-width-wide};
+  width: min(100% - var(--padding), var(--max-width));
+  margin-inline: auto;
+}
+
+.container--bleed {
+  --padding: 0px;
+  --max-width: 100%;
+  width: min(100% - var(--padding), var(--max-width));
   margin-inline: auto;
 }

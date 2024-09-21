@@ -7,7 +7,7 @@
   @if map.has-key($colors, $color, $shade) {
     @return map.get($colors, $color, $shade);
   } @else {
-    @error '#{$color} does found in $colors map!';
+    @error '#{$color} does not found in $colors map!';
   }
 }
 
@@ -15,7 +15,7 @@
   @if map.has-key($font-sizes, $font-size) {
     @return map.get($font-sizes, $font-size);
   } @else {
-    @error '#{$font-size} does found in $font-sizes map!';
+    @error '#{$font-size} does not found in $font-sizes map!';
   }
 }
 
@@ -23,7 +23,7 @@
   @if map.has-key($sizes, $size) {
     @return map.get($sizes, $size);
   } @else {
-    @error '#{$size} does found in $sizes map!';
+    @error '#{$size} does not found in $sizes map!';
   }
 }
 
@@ -31,7 +31,7 @@
   @if map.has-key($font-weights, $font-weight) {
     @return map.get($font-weights, $font-weight);
   } @else {
-    @error '#{$font-weight} does found in $font-weights map!';
+    @error '#{$font-weight} does not found in $font-weights map!';
   }
 }
 
@@ -39,6 +39,6 @@
   @if map.has-key($sizes, $size) {
     @return map.get($sizes, $size);
   } @else {
-    @error '#{$size} does found in $sizes map!';
+    @error '#{$size} does not found in $sizes map!';
   }
 }
